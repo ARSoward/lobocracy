@@ -1,9 +1,11 @@
 # Liquid Democracy Testnet #
 This repository contains instructions and example config files to set up a test net to deploy liquid democracy smart contracts. The commands included are for a linux machine, but they should work on any OS with the standard os-specific alterations.
 
+The actual code in `truffle/contracts` borrows heavily from the ethereum.org tutorial formerly known as "How to Build a Democracy on the Blockchain". However, since the site refactor on April 30, 2019, this tutorial is no longer up.
+
 ## Getting Started ##
 ### Prerequisites ###
-You will need to download [geth](https://geth.ethereum.org/downloads/) to start the testnet, [truffle](truffleframework)(which uses node/npm) to deploy the contracts, and [mist](https://github.com/ethereum/mist/releases) or your facorite wallet application to interact with the contracts.
+You will need to download [geth](https://geth.ethereum.org/downloads/) to start the testnet, [truffle](truffleframework)(which uses node/npm) to deploy the contracts, and [mist](https://github.com/ethereum/mist/releases) or your favorite wallet application to interact with the contracts.
 
 Once you've installed the necessary packages, you can initialize your private blockchain from this repository by running geth with the following arguments:
 ```bash
@@ -23,7 +25,9 @@ miner.start(1)
 ```
 Create an account using a unique password, since it will be sent in an insecure way when we connect to the mist wallet. 
 
-The 1 confines mining operations to one of the cores on your computer, so it doesn't eat up all your RAM. When the miner starts, first the network will begin creating a DAG to form the base of the blockchain. This can take a few minutes, depending on how powerful your computer is. Then, you will see it mining new blocks and adding them to the chain. Of course, all the mined blocks have 0 transactions because this is your private blockchain. The configuration file has the difficulty set very low, so in no time at all you will be rich in faux ethereum. 
+The 1 confines mining operations to one of the cores on your computer, so it doesn't eat up all your RAM. When the miner starts, first the network will begin creating a DAG to form the base of the blockchain. This can take a few minutes, depending on how powerful your computer is. 
+
+Once the DAG is generated, you will see your account mining new blocks and adding them to the chain. The genesis file has the difficulty set very low, so in no time at all you will be rich in faux ethereum. Of course, all the mined blocks have 0 transactions because this is your private blockchain. 
 
 
 Some other helpful geth console commands to know:
